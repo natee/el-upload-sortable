@@ -1,7 +1,7 @@
 # el-upload-sortable
 Element UI 照片墙增加拖动调整顺序功能
 
-[TypeScript版](###typescript)
+[TypeScript版](#typescript)
 
 ## 链接
 - [Demo](https://codepen.io/anon/pen/Pvqgzo)
