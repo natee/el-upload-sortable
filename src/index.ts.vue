@@ -32,6 +32,7 @@
     :action="action"
     :show-file-list="false"
     :on-success="handleSuccess"
+    :on-error="handleError"
     :before-upload="beforeUpload">
     <i class="el-icon-plus"></i>
   </el-upload>
@@ -90,6 +91,10 @@ export default class ElUploadSortable extends Vue {
   handleSuccess(res: any, file: any) {
     this.list.push(URL.createObjectURL(file.raw));
     return this.list
+  }
+
+  handleError(err: any) {
+    this.$message.error("上传失败!");
   }
 
   @Emit('change')

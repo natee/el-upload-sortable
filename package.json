@@ -1,6 +1,6 @@
 {
   "name": "el-upload-sortable",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Element UI 照片墙增加拖动调整顺序功能",
   "main": "src/index.vue",
   "scripts": {
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/natee/el-upload-sorttable.git"
+    "url": "https://github.com/natee/el-upload-sortable.git"
   },
   "author": "kerncink@gmail.com",
   "license": "MIT",

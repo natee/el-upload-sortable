@@ -32,6 +32,7 @@
     :action="action"
     :show-file-list="false"
     :on-success="handleSuccess"
+    :on-error="handleError"
     :before-upload="beforeUpload">
     <i class="el-icon-plus"></i>
   </el-upload>
@@ -98,6 +99,10 @@ export default {
     handleSuccess(res, file) {
       this.list.push(URL.createObjectURL(file.raw));
       this.$emit('change', this.list)
+    },
+
+    handleError(err) {
+      this.$message.error("上传失败!");
     },
 
     handleRemove(file, index) {
