@@ -1,6 +1,7 @@
 # el-upload-sortable
 Element UI 照片墙增加拖动调整顺序功能
-[TypeScript版](###typescript)
+
+[TypeScript版](###typescript)
 
 ## 链接
 - [Demo](https://codepen.io/anon/pen/Pvqgzo)
@@ -31,7 +32,7 @@ export default {
 ### TypeScript
 如果你是使用TypeScript，请直接拷贝`node_modules/el-upload-sortable/src/index.ts.vue`到你自己的组件目录进行开发。
 
-**你需要自行处理**
+**你需要自行处理**
 - tsconfig.json
 - 安装vue-property-decorator
 
