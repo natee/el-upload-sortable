@@ -1,0 +1,22 @@
+{
+  "name": "el-upload-sortable",
+  "version": "0.0.1",
+  "description": "Element UI 照片墙增加拖动调整顺序功能(TypeScript版)",
+  "main": "src/index.vue",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "element-ui",
+    "upload",
+    "drag",
+    "sortable",
+    "typescript"
+  ],
+  "author": "kerncink@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "vue-property-decorator": "^8.1.0",
+    "vuedraggable": "^2.20.0"
+  }
+}
