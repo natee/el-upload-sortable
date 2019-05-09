@@ -38,7 +38,7 @@ export default {
 
 ```javascript
 import { Component, Vue } from "vue-property-decorator";
-import ElUploadSortable from "el-upload-sortable";
+import ElUploadSortable from "../../../node_modules/el-upload-sortable/src/index.ts.vue"; // 这里的路径结合实际情况
 
 @Component({
   components: {
