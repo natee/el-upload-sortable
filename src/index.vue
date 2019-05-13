@@ -57,12 +57,25 @@ export default {
     action: {
       type: String,
       default: 'https://jsonplaceholder.typicode.com/posts/'
+    },
+    imgList: {
+      type: Array,
+      default: () => []
     }
   },
 
+  computed:{
+    list: {
+      get() {
+        return this.imgList
+      },
+      set(val) {
+        this.updateList(val)
+      }
+    }
+  },
   data () {
     return {
-      list: [],
       drag: false,
       dragOptions: {
         animation: 200,
