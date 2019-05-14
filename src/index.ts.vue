@@ -55,7 +55,13 @@ export default class ElUploadSortable extends Vue {
   @Prop({ default: 'https://jsonplaceholder.typicode.com/posts/' }) action!: string;
   @Prop({ default: () => []}) list!: Array<string>;
 
-  private imgList: any[] = [];
+  get imgList() {
+    return this.list;
+  }
+  set imgList(val) {
+    this.updateList(val)
+  }
+
   private drag: boolean = false;
   private dragOptions: object = {
     animation: 200,
