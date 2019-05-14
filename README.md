@@ -53,6 +53,7 @@ import ElUploadSortable from "../../../node_modules/el-upload-sortable/src/index
 ---- | --- | --- | ---
 max | 最多可以上传图片数量 | number | 15
 action | 上传图片的api地址 | string | https://jsonplaceholder.typicode.com/posts/
+list | 初始图片列表（可选） | array | []
 
 ## Events
 

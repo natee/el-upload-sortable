@@ -10,10 +10,10 @@
 </style>
 
 <template>
-<div class="upload-queue" @change="updateList(list)">
-  <draggable v-model="list" @start="drag=true" @end="drag=false" 
+<div class="upload-queue" @change="updateList(imgList)">
+  <draggable v-model="imgList" @start="drag=true" @end="drag=false" 
     class="el-upload-list el-upload-list--picture-card">
-    <div class="el-upload-list__item" v-for="(item, index) in list" :key="index">
+    <div class="el-upload-list__item" v-for="(item, index) in imgList" :key="index">
       <img :src="item" class="el-upload-list__item-thumbnail">
 
       <span class="el-upload-list__item-actions">
@@ -27,7 +27,7 @@
     </div>
   </draggable>
   <el-upload
-    v-if="list.length < max"
+    v-if="imgList.length < max"
     class="el-upload el-upload--picture-card"
     :action="action"
     :show-file-list="false"
@@ -58,16 +58,16 @@ export default {
       type: String,
       default: 'https://jsonplaceholder.typicode.com/posts/'
     },
-    imgList: {
+    list: {
       type: Array,
       default: () => []
     }
   },
 
   computed:{
-    list: {
+    imgList: {
       get() {
-        return this.imgList
+        return this.list
       },
       set(val) {
         this.updateList(val)
@@ -102,7 +102,7 @@ export default {
         this.$message.error("图片大小不能超过 2MB!");
       }
 
-      const maxLt = this.max === 1 && this.list.length > 0;
+      const maxLt = this.max === 1 && this.imgList.length > 0;
       if(maxLt){
         this.$message.error("只能上传一张图片，请删除后再上传!");
       }
@@ -110,8 +110,8 @@ export default {
     },
 
     handleSuccess(res, file) {
-      this.list.push(URL.createObjectURL(file.raw));
-      this.$emit('change', this.list)
+      this.imgList.push(URL.createObjectURL(file.raw));
+      this.$emit('change', this.imgList)
     },
 
     handleError(err) {
@@ -119,8 +119,8 @@ export default {
     },
 
     handleRemove(file, index) {
-      this.list.splice(index, 1);
-      this.$emit('change', this.list)
+      this.imgList.splice(index, 1);
+      this.$emit('change', this.imgList)
     },
 
     handlePreview(url) {
