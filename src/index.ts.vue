@@ -53,7 +53,7 @@ import draggable from "vuedraggable";
 export default class ElUploadSortable extends Vue {
   @Prop({ default: 15 }) max!: number;
   @Prop({ default: 'https://jsonplaceholder.typicode.com/posts/' }) action!: string;
-  @Prop({ default: () => []}) list!: array;
+  @Prop({ default: () => []}) list!: Array<string>;
 
   private imgList: any[] = [];
   private drag: boolean = false;
