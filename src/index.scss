@@ -1,0 +1,12 @@
+.upload-queue{
+  .el-upload-list__item:hover{
+    .el-upload-list__item-actions{
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  .el-upload--picture-card .el-upload--text{
+    width: 100%;
+  }
+}
