@@ -27,6 +27,7 @@
     </div>
   </draggable>
   <el-upload
+    :multiple="multiple"
     v-if="imgList.length < max"
     class="el-upload el-upload--picture-card"
     :action="action"
@@ -54,6 +55,8 @@ export default class ElUploadSortable extends Vue {
   @Prop({ default: 15 }) max!: number;
   @Prop({ default: 'https://jsonplaceholder.typicode.com/posts/' }) action!: string;
   @Prop({ default: () => []}) list!: Array<string>;
+  @Prop({ default: false}) multiple!: boolean;
+  @Prop({ default: ''}) param!: string; // 上传接口返回结果中的图片链接对应的参数，格式如"url"、"result.url"
 
   get imgList() {
     return this.list;
@@ -96,7 +99,12 @@ export default class ElUploadSortable extends Vue {
 
   @Emit('change')
   handleSuccess(res: any, file: any) {
-    this.imgList.push(URL.createObjectURL(file.raw));
+    const params = this.param.split('.');
+    let url = res;
+    params.forEach(item => {
+      url = url[item];
+    });
+    this.imgList.push(url ? url: URL.createObjectURL(file.raw));
     return this.imgList
   }
 

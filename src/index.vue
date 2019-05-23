@@ -27,6 +27,7 @@
     </div>
   </draggable>
   <el-upload
+    :multiple="multiple"
     v-if="imgList.length < max"
     class="el-upload el-upload--picture-card"
     :action="action"
@@ -61,6 +62,14 @@ export default {
     list: {
       type: Array,
       default: () => []
+    },
+    multiple: {
+      type: Boolean,
+      default: false
+    },
+    param: {
+      type: String,
+      default: ''
     }
   },
 
@@ -110,7 +119,12 @@ export default {
     },
 
     handleSuccess(res, file) {
-      this.imgList.push(URL.createObjectURL(file.raw));
+      const params = this.param.split('.');
+      let url = res;
+      params.forEach(item => {
+        url = url[item];
+      });
+      this.imgList.push(url ? url: URL.createObjectURL(file.raw));
       this.$emit('change', this.imgList)
     },
 
