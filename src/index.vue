@@ -1,12 +1,5 @@
-<style lang="scss" scoped>
-.upload-queue{
-  .el-upload-list__item:hover{
-    .el-upload-list__item-actions{
-      display: block;
-      opacity: 1;
-    }
-  }
-}
+<style lang="scss">
+@import './index.scss';
 </style>
 
 <template>
