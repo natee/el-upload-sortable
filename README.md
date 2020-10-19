@@ -19,13 +19,18 @@ import ElUploadSortable from "el-upload-sortable";
 export default {
   components: {
     ElUploadSortable
+  },
+  methods: {
+    picUpdate(list){
+      // this.myList = list
+    }
   }
 }
 ```
 
 ```html
 <template>
-  <el-upload-sortable @change="picUpdate(imageList, ...otherArgs)"></el-upload-sortable>
+  <el-upload-sortable @change="picUpdate"></el-upload-sortable>
 </template>
 ```
 
@@ -61,4 +66,4 @@ param | 上传接口返回结果中图片链接对应的字段（可选），若
 
 属性 | 说明 | 回调参数
 ---- | --- | --- 
-change | 照片墙数据更新时的事件 | （list） 
+change | 照片墙数据更新时的事件 | （imageList） 

@@ -3,8 +3,8 @@
 </style>
 
 <template>
-<div class="upload-queue" @change="updateList(imgList)">
-  <draggable class="" v-model="imgList" @start="drag=true" @end="drag=false" 
+<div class="upload-queue">
+  <draggable class="" v-model="imgList" @start="drag=true" @end="drag=false" @update="updateList(imgList)"
     class="el-upload-list el-upload-list--picture-card">
     <div class="el-upload-list__item" v-for="(item, index) in imgList" :key="index">
       <img :src="item" class="el-upload-list__item-thumbnail">
@@ -51,13 +51,7 @@ export default class ElUploadSortable extends Vue {
   @Prop({ default: false}) multiple!: boolean;
   @Prop({ default: ''}) param!: string; // 上传接口返回结果中的图片链接对应的参数，格式如"url"、"result.url"
 
-  get imgList() {
-    return this.list;
-  }
-  set imgList(val) {
-    this.updateList(val)
-  }
-
+  private imgList: string[] = this.list.slice();
   private drag: boolean = false;
   private dragOptions: object = {
     animation: 200,

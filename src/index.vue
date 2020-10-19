@@ -3,12 +3,11 @@
 </style>
 
 <template>
-<div class="upload-queue" @change="updateList(imgList)">
-  <draggable v-model="imgList" @start="drag=true" @end="drag=false" 
+<div class="upload-queue">
+  <draggable v-model="imgList" @start="drag=true" @end="drag=false" @update="updateList(imgList)"
     class="el-upload-list el-upload-list--picture-card">
     <div class="el-upload-list__item" v-for="(item, index) in imgList" :key="index">
       <img :src="item" class="el-upload-list__item-thumbnail">
-
       <span class="el-upload-list__item-actions">
         <span class="el-upload-list__item-preview" @click="handlePreview(item)">
           <i class="el-icon-zoom-in"></i>
@@ -65,19 +64,9 @@ export default {
       default: ''
     }
   },
-
-  computed:{
-    imgList: {
-      get() {
-        return this.list
-      },
-      set(val) {
-        this.updateList(val)
-      }
-    }
-  },
   data () {
     return {
+      imgList: this.list.slice(),
       drag: false,
       dragOptions: {
         animation: 200,
@@ -89,7 +78,6 @@ export default {
       dialogVisible: false
     }
   },
- 
   methods: {
     updateList(list){
       this.$emit('change', list)
@@ -121,7 +109,7 @@ export default {
       this.$emit('change', this.imgList)
     },
 
-    handleError(err) {
+    handleError() {
       this.$message.error("上传失败!");
     },
 

@@ -1,6 +1,6 @@
 {
   "name": "el-upload-sortable",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Element UI 照片墙增加拖动调整顺序功能",
   "main": "src/index.vue",
   "scripts": {
@@ -21,6 +21,6 @@
   "license": "MIT",
   "dependencies": {
     "vue-property-decorator": "^8.1.0",
-    "vuedraggable": "^2.20.0"
+    "vuedraggable": "^2.24.2"
   }
 }
